@@ -8,8 +8,15 @@ const TitleOfPage = styled.h1`
   font-style: italic;
 `;
 
+const LinkOfHeader = styled.h2`
+text-decoration: none;  
+display: flex;
+flex-direction: row;
+justify-content: space-around
+`;
+
 export const ContainerHeader = styled(Container)`
-  height: 5rem;
+  height: 8rem;
 `;
 
 const Header = () => {
@@ -18,6 +25,29 @@ const Header = () => {
       <header>
         <ContainerHeader>
           <TitleOfPage>Wilders Book</TitleOfPage>
+          <LinkOfHeader>
+
+            <a href="/"> 
+
+                <h2>
+                    Home                
+                </h2>
+            </a>
+
+            <a href="/about"> 
+
+<h2>
+    About                
+</h2>
+</a>
+
+<a href="/form"> 
+
+<h2>
+    Ajout                
+</h2>
+</a>
+            </LinkOfHeader>
         </ContainerHeader>
       </header>
     </div>
