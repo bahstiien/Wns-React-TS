@@ -28,25 +28,23 @@ const Header = () => {
           <LinkOfHeader>
 
             <a href="/"> 
-
-                <h2>
+              <h2>
                     Home                
                 </h2>
             </a>
 
             <a href="/about"> 
+   <h2>
+                      About                
+                  </h2>
+            </a>
 
-<h2>
-    About                
-</h2>
-</a>
+            <a href="/form"> 
 
-<a href="/form"> 
-
-<h2>
-    Ajout                
-</h2>
-</a>
+              <h2>
+                  Ajout                
+              </h2>
+            </a>
             </LinkOfHeader>
         </ContainerHeader>
       </header>
