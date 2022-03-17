@@ -5,11 +5,13 @@ interface IProps {
     name: string,
     city: string
 }
-export function Form(props : IProps) {
+
+
+function Form(props : IProps) {
   const [name, setName] = useState("");
   const [city, setCity] = useState("");
-
-  const submitForm = async (event) => {
+ 
+  const submitForm = async (event :any) => {
     try {
       event.preventDefault();
 
@@ -21,7 +23,7 @@ export function Form(props : IProps) {
 
       console.log("Wilder to create: ", data);
 
-      const result = await axios.post("http://localhost:300/api/wilders", data);
+      const result = await axios.post("http://localhost:3001/api/wilders", data);
       console.log(result.data);
 
       setName("");
@@ -51,3 +53,5 @@ export function Form(props : IProps) {
     </form>
   );
 }
+
+export default Form

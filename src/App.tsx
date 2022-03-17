@@ -5,10 +5,16 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import WilderCard from "./components/WilderCard";
 import axios from "axios";
-import {Form} from "./components/Form"
+// import Form from './components/Form'
 
+interface IWilder {
+  _id: string,
+  name: string,
+  city: string,
+  skills: {title: string, votes:number}[];
+}
 function App() {
-  const [wilders, setWilders] = useState([]);
+  const [wilders, setWilders] = useState<IWilder[]>([]);
   const [hasError, setHasError] = useState(false);
 
   const getWilders = async () => {
@@ -26,15 +32,15 @@ function App() {
   }, [wilders]);
 
   return (
-    <div>
+    <div> 
       <Header />
       <main className="container">
         <h2>Wilders</h2>
-         <Form /> 
+         {/* <Form />   */}
        <button onClick={() => getWilders()}> MAJ </button>
         <section className="card-row">
-          {wilders.map((wilder) => (
-            <WilderCard key={wilder.id: number} {...wilder} />
+          {wilders.map((wilder, index) => (
+            <WilderCard key={wilder._id} _id={wilder._id} name={wilder.name} city={wilder.city} skills={wilder.skills} />
           ))} 
         </section>
       </main>

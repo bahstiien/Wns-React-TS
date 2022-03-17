@@ -1,31 +1,31 @@
 import React from "react";
 import Skills from "./Skills";
+import axios from 'axios';
 
 interface IProps {
+    _id?: string,
     name: string, 
-    description: string,
     city: string,
-    skills: string
+    skills: {title :string, votes:number}[];
 }
 
-interface IPropsSkills {
-    votes: number, 
-    title: string
+const WilderCard = ({name, city, skills, _id}: IProps) => {
+    // DELETE A WILDER
+    const clickDelete = async () => {
+  
+    await axios.delete(`http://localhost:3001/api/wilders/${_id}`)
 }
-
-
-
-const WilderCard = (props: IProps) => {
-  return (
+    return (
     <div>
       <article className="card">
-        <h3>{props.name}</h3>
-        <p>{props.description}</p>
-        <p> {props.city} </p>
+        <h3>{name}</h3>
+        <p> {city} </p>
         <h4>Wild Skills</h4>
-        {skills.map((skill : IPropsSkills, index: number) => (
-          <Skills key={index} title={title} votes={votes} />
+        <p> id : {_id} </p>        
+        {skills.map((skill, index) => (
+          <Skills key={index} title={skill.title} votes={skill.votes} />
         ))}
+        <button onClick={clickDelete}>DELETE</button> 
       </article>
     </div>
   );
