@@ -27,7 +27,7 @@ const WilderList = () => {
     useEffect(() => {
       getWilders();
       // return () => {};
-    }, [wilders]);
+    }, []);
     return (
         <div>
               <h2>Wilders</h2>

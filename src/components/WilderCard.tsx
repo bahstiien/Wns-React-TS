@@ -10,6 +10,18 @@ interface IProps {
 }
 
 const WilderCard = ({name, city, skills, _id}: IProps) => {
+  // RandomUser
+  const randomUser = Math.floor(Math.random()* 10);
+
+  function randomMenOrWomen(): string {
+      if (Math.random() > 0.5){
+      return "men";
+      } else {
+          return "women"
+      }}
+
+
+
     // DELETE A WILDER
     const clickDelete = async () => {
   
@@ -25,6 +37,7 @@ const WilderCard = ({name, city, skills, _id}: IProps) => {
         {skills.map((skill, index) => (
           <Skills key={index} title={skill.title} votes={skill.votes} />
         ))}
+        <img src={`https://randomuser.me/api/portraits/${randomMenOrWomen()}/${randomUser}.jpg`} alt={name} />
         <button onClick={clickDelete}>DELETE</button> 
       </article>
     </div>
